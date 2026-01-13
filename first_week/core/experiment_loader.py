@@ -1,8 +1,9 @@
+from pathlib import Path
 import yaml
 import pandas as pd
-from pathlib import Path
 
-CONFIG_PATH = Path("../configs/experiments.yaml")
+BASE_DIR = Path(__file__).resolve().parents[1]   # first_week/
+CONFIG_PATH = BASE_DIR / "configs" / "experiments.yaml"
 
 def load_experiment(experiment_id):
     with open(CONFIG_PATH, "r") as f:
@@ -10,16 +11,14 @@ def load_experiment(experiment_id):
 
     exp = config["experiments"][experiment_id]
 
-    df = pd.read_csv(exp["csv_path"])
+    csv_path = BASE_DIR / exp["csv_path"]   # 🔥 이 줄이 핵심
+    df = pd.read_csv(csv_path)
 
     return {
         "experiment_id": experiment_id,
         "domain": exp["domain"],
         "df": df,
-        "entity_id_hint": exp["entity_id_hint"],
-        "time_hint": exp["time_hint"],
         "state_recipe": exp["state_recipe"],
         "decision_policy": exp["decision_policy"],
         "guardrail_policy": exp["guardrail_policy"],
-        "llm_profile": exp["llm_profile"],
     }
