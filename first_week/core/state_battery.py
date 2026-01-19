@@ -35,7 +35,7 @@ def extract_battery_state(df, window=None):
                 baseline = g.loc[idx[i-window:i-1], "QD"].mean()
                 if baseline == 0 or np.isnan(baseline):
                     continue
-                df.loc[idx[i], "state_value"] = df.loc[idx[i], "QD"] / baseline
+                df.loc[idx[i], "state_value"] = baseline / df.loc[idx[i], "QD"]
 
     df["state_valid"] = df["state_value"].notna()
 

@@ -15,10 +15,10 @@ def run_experiment(experiment_id):
     )
 
     decision_raw = run_decision(
-        state_df=state_df,
+        state_df,
         policy=exp["decision_policy"],
     )
-
+    
     decision_df = state_df.copy()
     decision_df["decision_raw"] = decision_raw
 

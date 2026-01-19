@@ -18,5 +18,6 @@ experiments:
     state_window: 5
 
     decision_policy: threshold_v1
+    decision_threshold: 1.075
     guardrail_policy: stability_v1
     llm_profile: none

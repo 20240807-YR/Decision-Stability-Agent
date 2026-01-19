@@ -42,11 +42,12 @@ def load_experiment(experiment_id):
         state_recipe = STATE_TYPE_TO_RECIPE[state_type]
 
     return {
-        "experiment_id": experiment_id,
-        "domain": exp["domain"],
-        "df": df,
-        "state_recipe": state_recipe,
-        "state_window": exp.get("state_window"),   # 없으면 None
-        "decision_policy": exp["decision_policy"],
-        "guardrail_policy": exp["guardrail_policy"],
-    }
+    "experiment_id": experiment_id,
+    "domain": exp["domain"],
+    "df": df,
+    "state_recipe": exp.get("state_recipe"),
+    "state_window": exp.get("state_window"),
+    "decision_policy": exp["decision_policy"],
+    "decision_threshold": exp.get("decision_threshold"),  # ← 추가
+    "guardrail_policy": exp["guardrail_policy"],
+}
