@@ -2,9 +2,10 @@ experiments:
   battery_main_long:
     domain: battery
     csv_path: data_csv/Lithium-Ion Battery Cycle Life.csv
-    entity_id_hint: battery_id
-    time_hint: cycle
+
     state_recipe: battery_soh_v1
+    state_window: 5
+
     decision_policy: threshold_v1
     guardrail_policy: stability_v1
     llm_profile: none
@@ -12,19 +13,10 @@ experiments:
   ehr_main:
     domain: ehr
     csv_path: data_csv/ehr_disease_progression.csv
-    entity_id_hint: patient_id
-    time_hint: day
-    state_recipe: ehr_baseline_v1
-    decision_policy: threshold_v1
-    guardrail_policy: stability_v1
-    llm_profile: none
 
-  battery_ablation_100:
-    domain: battery
-    csv_path: data_csv/100_Cycle_Lithium-Ion Battery Cycle Life.csv
-    entity_id_hint: battery_id
-    time_hint: cycle
-    state_recipe: battery_soh_v1
+    state_recipe: ehr_baseline_v1
+    state_window: 5
+
     decision_policy: threshold_v1
     guardrail_policy: stability_v1
     llm_profile: none

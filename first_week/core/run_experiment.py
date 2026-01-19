@@ -8,9 +8,10 @@ def run_experiment(experiment_id):
     exp = load_experiment(experiment_id)
 
     state_df = build_state(
-        df=exp["df"],
-        recipe=exp["state_recipe"],
-        domain=exp["domain"],
+    df=exp["df"],
+    recipe=exp["state_recipe"],
+    domain=exp["domain"],
+    window=exp.get("state_window"),
     )
 
     decision_raw = run_decision(
@@ -30,5 +31,7 @@ def run_experiment(experiment_id):
 
 
 if __name__ == "__main__":
-    out = run_experiment("battery_main_long")
-    print(out.head())
+    import sys
+    exp_id = sys.argv[1]
+    out = run_experiment(exp_id)
+    print(out.head(20))
