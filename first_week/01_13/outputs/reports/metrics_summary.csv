@@ -1,0 +1,2 @@
+experiment_id,domain,n_rows_total,n_rows_valid,toggle_rate_raw,toggle_rate_final,false_intervention_rate_raw,false_intervention_rate_final,stabilization_rate_raw,stabilization_rate_final
+battery_main_long,battery,114738,114738,0.0029522729877743,0.0029522729877743,0.0,0.0,0.0,0.0

@@ -1,0 +1,12 @@
+{
+  "experiment_id": "battery_main_long",
+  "domain": "battery",
+  "n_rows_total": 114738,
+  "n_rows_valid": 114738,
+  "toggle_rate_raw": 0.0029522729877743,
+  "toggle_rate_final": 0.0029522729877743,
+  "false_intervention_rate_raw": 0.0,
+  "false_intervention_rate_final": 0.0,
+  "stabilization_rate_raw": 0.0,
+  "stabilization_rate_final": 0.0
+}
